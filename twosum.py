@@ -15,14 +15,14 @@ def two_sum(nums, target):
         # enumerate() is a built-in function that adds a counter to an iteratable and returns it as an enumerate object. 
         # It can be used to get both the index and the value of each element in a list during iteration.
         complement = target - num
-        # compleement is the number we need to find in the hash map to reach the target when added to the current number
+        # complement is the number we need to find in the hash map to reach the target when added to the current number
         if complement in num_to_index:
         # if the complement is already in the hash map, it means we have found the two numbers that add up to the target
             return [num_to_index[complement], i]
             # return the indices of the two numbers
         num_to_index[num] = i
         # if the complement is not in the hash map, we add the current numeber and its index to the hash map for future reference
-        return None
+    return None
         # if we finish the loop without finding a solution, we return None
 
 assert two_sum([2, 7, 11, 15], 9) == [0, 1]
