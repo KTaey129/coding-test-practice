@@ -26,4 +26,7 @@ def two_sum(nums, target):
         # if we finish the loop without finding a solution, we return None
 
 assert two_sum([2, 7, 11, 15], 9) == [0, 1]
+# The assert statement is used to test if the function two_sum returns the expected output for the given input. 
+# If the condition is true, nothing happens and the program continues. If the condition is false, an AssertionError is raised with an optional error message. 
+# In this case, we are checking if two_sum([2, 7, 11, 15], 9) returns [0, 1], which means that the numbers at indices 0 and 1 (2 and 7) add up to 9.
 assert two_sum([3, 2, 4], 6) == [1, 2]
