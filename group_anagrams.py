@@ -37,3 +37,20 @@ words = ["eat", "tea", "tan", "ate", "nat", "bat"]
 print(group_anagrams(words))
 
 assert group_anagrams(words) == [["eat","tea","ate"], ["tan","nat"], ["bat"]]
+
+# solution of it as using tuple
+# Instead of sorting the word (which is O(k log k)), you use a character frequency count as the key.
+#Since the problem says only lowercase letters, there are always exactly 26 possible characters. So you make a tuple of 26 counts:
+def group_anagrams(words):
+    anagram_map = {}
+    for word in words:
+        count = [0] * 26  # Initialize a list of 26 zeros for character counts
+        for char in word:
+            count[ord(char) - ord('a')] += 1  # Increment the count for the corresponding character
+        key = tuple(count)  # Convert the list to a tuple to use as a dictionary key
+        if key not in anagram_map:
+            anagram_map[key] = []  # Create a new entry if the key is not already in the map
+        anagram_map[key].append(word)  # Append the original word to the list corresponding to the key
+    return list(anagram_map.values())  # Return the values of the anagram_map as a list of lists
+    # In practice for coding tests, the sorting approach is fine — word lengths are rarely long enough for this to matter. But it's a good optimization to mention in an interview.
+    
